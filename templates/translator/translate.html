@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Traducteur Django</title>
+</head>
+<body>
+    <h2>Uploader un fichier pour traduction</h2>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Traduire</button>
+    </form>
+
+    {% if original_text %}
+        <h3>Texte original :</h3>
+        <pre>{{ original_text }}</pre>
+    {% endif %}
+
+    {% if translated_text %}
+        <h3>Texte traduit :</h3>
+        <pre>{{ translated_text }}</pre>
+    {% endif %}
+</body>
+</html>
